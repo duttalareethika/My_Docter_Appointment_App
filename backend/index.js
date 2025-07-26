@@ -20,6 +20,7 @@ const corsOptions = {
         "https://doctor-appointments-using-mern-stack.vercel.app",
         "https://doctor-appointments-using-mern-stack-ub19.vercel.app",
         // Include any other frontend URLs you might be using
+        "https://doctor-appointment-app-6wst.vercel.app/",
         "http://localhost:3000"
     ],
     credentials: true,

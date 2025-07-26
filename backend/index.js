@@ -29,6 +29,7 @@ const corsOptions = {
 };
 app.get('/', (req, res) => {
     res.send("api is working");
+    connectDB();
 })
 
 //database
@@ -37,8 +38,10 @@ mongoose.set('strictQuery', false)
 const connectDB = async () => {
     try {
         mongoose.connect(process.env.MONGO_URL)
+        res.status(200).json({message : "database connected"})
         console.log("database is connected");
     } catch (error) {
+        res.status(500).json({message:"not connected"})
         console.log("Connection error in database")
     }
 }

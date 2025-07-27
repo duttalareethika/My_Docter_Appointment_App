@@ -61,6 +61,7 @@ app.listen(port, async() => {
 });
 app.get('/api/dbstatus', async (req, res) => {
   const state = mongoose.connection.readyState;
+    console.log(state);
 
   // 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
   const statusMap = ['disconnected', 'connected', 'connecting', 'disconnecting'];

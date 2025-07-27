@@ -17,9 +17,8 @@ const port = process.env.PORT || 8000;
 
 const corsOptions = {
     origin: [
-        "https://doctor-appointments-using-mern-stack.vercel.app",
-        "https://doctor-appointments-using-mern-stack-ub19.vercel.app",
-        "https://doctor-appointment-app-6wst.vercel.app/",
+       
+        "https://doctor-appointment-app-6wst.vercel.app",
         "http://localhost:3000"
     ],
     credentials: true,

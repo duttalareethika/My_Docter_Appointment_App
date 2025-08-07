@@ -5,16 +5,34 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo Installing source NPM dependencies...
-      - npm install
+      - echo Installing frontend dependencies...
+      - cd frontend
+      - npm ci --legacy-peer-deps
+      - cd ..
+      - echo Installing backend dependencies...
+      - cd backend
+      - npm ci
+      - cd ..
 
   build:
     commands:
-      - echo Build started on `date`
+      - echo Building React frontend...
+      - cd frontend
       - npm run build
-      - echo Build completed on `date`
+      - cd ..
+      - echo Skipping backend build
 
 artifacts:
   files:
     - '**/*'
-  base-directory: build  # This is where React places the built site
+  discard-paths: no
+  secondary-artifacts:
+    frontend:
+      base-directory: frontend/dist
+      files:
+        - '**/*'
+    backend:
+      base-directory: backend
+      files:
+        - '**/*'
+

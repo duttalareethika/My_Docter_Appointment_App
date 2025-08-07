@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: .
+  - source:backend
     destination: /home/ec2-user/doctor-backend
 
 hooks:
@@ -13,4 +13,3 @@ hooks:
     - location: scripts/start.sh
       timeout: 300
       runas: ec2-user
-

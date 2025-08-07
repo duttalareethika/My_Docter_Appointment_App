@@ -1,20 +1,20 @@
-  version: 0.2
-                
-  phases:
-    install:
-      runtime-versions:
-        nodejs: 18
-      commands:
-        - echo Installing dependencies...
-        - npm ci --legacy-peer-deps
-                
-    build:
-      commands:
-        - echo Building the React app...
-        - npm run build
-                
-  artifacts:
-    files:
-      - '**/*'
-    base-directory: dist
-    discard-paths: no
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - npm run build
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build  # This is where React places the built site
